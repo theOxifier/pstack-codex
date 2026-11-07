@@ -8,6 +8,9 @@ Follow the upstream workflow below, translating only its host-specific instructi
 - Use Codex collaboration tools for upstream `Task`, `generalPurpose`, `run_in_background`,
   and wait instructions. Match the requested role and allowed actions, not unsupported tool fields.
   Batch work within available concurrency. If agents are unavailable, report the missing work.
+- For fresh Task subagents using `spawn_agent`, set `fork_turns: "none"` and pass only the prompt
+  and file pointers the upstream workflow specifies. Inherited parent history would expose
+  arena's private rubric and earlier candidate findings.
 - Do not look for `pstack-models.mdc` or request Cursor-only model names. Use available Codex
   models or inherit the parent model; disclose lost model diversity. Never claim that independent
   same-family agents are different model families. If arena's cross-family judge cannot run,
