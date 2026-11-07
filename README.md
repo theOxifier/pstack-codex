@@ -14,6 +14,17 @@ fork it. improve it. make it yours. PRs are welcome!
 
 ## install
 
+### codex
+
+this branch adapts the complete pstack plugin in place. install this repository as a whole
+local plugin through Codex's plugin workflow; the root `plugin.json` discovers every skill
+under `skills/`, including `poteto-mode`. checking out this repo does not install anything.
+read [the Codex adapter](./docs/harness/codex.md) for host translations and
+[compatibility.md](./compatibility.md) for the change boundary and upstream update workflow.
+the pinned source revisions are in [upstream.json](./upstream.json).
+
+### cursor and claude code
+
 ```bash
 /add-plugin pstack
 ```
