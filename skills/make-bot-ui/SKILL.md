@@ -8,6 +8,8 @@ disable-model-invocation: true
 ---
 # How to make a bot UI
 
+In Codex, read [the Codex adapter](../../docs/harness/codex.md) once per session before following this skill. It translates the Cursor names below; keep the Pstack workflow unchanged.
+
 Build a page the user clicks. A server on this computer POSTs JSON to a webhook routine. The bot wakes with that JSON. Keep the sender key on the server. Do not put the sender key in the browser, in chat, or in this skill.
 
 ## Create the webhook routine

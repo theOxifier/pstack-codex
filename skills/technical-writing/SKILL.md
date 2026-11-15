@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Technical writing
 
+In Codex, read [the Codex adapter](../../docs/harness/codex.md) once per session before following this skill. It translates the Cursor names below; keep the Pstack workflow unchanged.
+
 Write so a tired engineer understands on the first read. Apply all four layers.
 
 Three rules sit above the layers:

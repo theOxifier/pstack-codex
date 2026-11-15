@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Show me your work
 
+In Codex, read [the Codex adapter](../../docs/harness/codex.md) once per session before following this skill. It translates the Cursor names below; keep the Pstack workflow unchanged.
+
 Keep one canonical log.
 
 ## The format
