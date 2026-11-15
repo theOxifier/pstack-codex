@@ -54,7 +54,7 @@ as `<model> <reasoning-effort>` and aliases as `inherit-parent` or `auto`; map t
 the supported spawn arguments. Apply budget changes only to confirmed supported effort levels.
 Map unavailable defaults to `inherit-parent`, keeping each original panel's length. After the
 user confirms the choices, write the same role labels and budget comment to
-`~/.agents/pstack-models.md` without Cursor YAML frontmatter. Do not put the preferences in
+`~/.agents/pstack-models.md` without Cursor YAML frontmatter, including `# defaults: 2`. Drop retired how and why roles. Preserve existing confirmed Codex choices on migration; Cursor slug migration rules do not identify Codex defaults. Do not put the preferences in
 `AGENTS.md` or modify native/global configuration. Future Pstack invocations explicitly read
 that file, so setup's claim about an always-applied Cursor rule becomes that explicit read.
 
