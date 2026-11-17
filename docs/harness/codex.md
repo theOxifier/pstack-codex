@@ -13,7 +13,7 @@ Pstack in Codex. Follow the original workflows, translating only the host names 
 | `poteto-agent` | Use an execution-capable Codex agent with a brief requiring it to read `<pstack>/agents/poteto-agent.md` and the full `<pstack>/skills/poteto-mode/SKILL.md` before work. Pass those absolute paths. The parent owns the playbook; the delegate does not run it. |
 | `comment-sicko` | Give a Codex agent `<pstack>/agents/comment-sicko.md` as its role instructions and the scoped diff/files. Preserve its report-only scope. |
 | `AskQuestion` | Use an available Codex structured-question tool; otherwise ask in plain text. |
-| Open a todolist, `TodoWrite` | Use available planning tools, or maintain the workflow's checklist in the conversation. |
+| Open a todolist, `TodoWrite`, todolist tool | Use available planning tools, or maintain the workflow's checklist in the conversation. |
 | `Read`, `Grep`, `Glob`, shell tools | Use available file/shell tools and `rg`. |
 | Cursor's built-in `create-skill` | Use Codex's `skill-creator`. |
 
@@ -30,6 +30,11 @@ Pstack in Codex. Follow the original workflows, translating only the host names 
 | `file_attachments` | Supply absolute file pointers in the brief. |
 | `resume` | Use native follow-up tools only in the cases permitted by Pstack's fresh-subagent rule. |
 
+Every agent kickoff starts with `Read <pstack>/skills/poteto-mode/worker.md before anything else.`,
+using the absolute plugin path. This applies to native subagents and Project workers; workers pass
+the same pointer to agents they start. Read that file as the operator rules, subject to the host's
+instruction hierarchy.
+
 Batch fan-out within available concurrency without dropping candidates or feature coverage. Give
 writing workers distinct worktrees/output paths and explicit ownership. Native subagents inherit
 the host's permissions; a role brief does not create a separate operating-system sandbox.
@@ -42,7 +47,14 @@ the current Codex tool schema or an authorized native model listing confirms are
 Cursor default, inherit the parent and disclose the loss of model-family diversity. Preserve
 panel entry counts: two inherited entries still mean two independent candidates. Do not call
 same-family candidates different families. Follow arena's existing skip-and-report path when
-no cross-family judge can run. Drop unsupported speed settings and say so.
+no cross-family judge can run. Drop unsupported speed settings and say so. The pinned `model` in
+`agents/poteto-agent.md` is Cursor metadata: resolve and pass a supported native model and effort
+explicitly for that role, never the Cursor slug. For `inherit-parent` or `auto`, use a general
+execution-capable agent and omit the model override so the pin cannot override inheritance. Apply
+the same role resolution to Project workers. Preserve the upstream ceiling of `xhigh` for explicit
+effort choices; never translate it to `max` or a higher native level. Keep the upstream Fable
+exception and other-vendor review rules; report when the available Codex models cannot supply the
+required vendor.
 
 Map the `pstack-models.mdc` rule and `~/.cursor/rules/pstack-models.mdc` to
 `~/.agents/pstack-models.md`. This is a Pstack preference document, not a native Codex config
@@ -54,7 +66,13 @@ as `<model> <reasoning-effort>` and aliases as `inherit-parent` or `auto`; map t
 the supported spawn arguments. Apply budget changes only to confirmed supported effort levels.
 Map unavailable defaults to `inherit-parent`, keeping each original panel's length. After the
 user confirms the choices, write the same role labels and budget comment to
-`~/.agents/pstack-models.md` without Cursor YAML frontmatter, including `# defaults: 2`. Drop retired how and why roles. Preserve existing confirmed Codex choices on migration; Cursor slug migration rules do not identify Codex defaults. Do not put the preferences in
+`~/.agents/pstack-models.md` without Cursor YAML frontmatter, including `# defaults: 3`. Drop every
+role absent from setup's current table, including hardest tasks, architect runners, both reflect
+roles, how and why. Migrate an old `unlimited` budget to `large` and cap explicit efforts above
+`xhigh` at `xhigh`. Preserve existing confirmed Codex model choices and panel entries on migration;
+Cursor slug migration rules do not identify Codex defaults. Keep the new upstream cross-judge pool's
+two-entry default when no Codex choices exist, and never silently remove a confirmed native panel
+entry as though it were a Cursor default. Do not put the preferences in
 `AGENTS.md` or modify native/global configuration. Future Pstack invocations explicitly read
 that file, so setup's claim about an always-applied Cursor rule becomes that explicit read.
 
