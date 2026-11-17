@@ -26,8 +26,9 @@ Cursor manifest and upstream attribution/license are preserved. Installation sta
 `upstream.json` pins the original monorepo revision and Pstack-only history revision. `main`
 contains that extracted source history. Review with `git diff main -- skills/ agents/ docs/`
 and use `git log --follow -p -- skills/<name>/SKILL.md` for a skill's original history.
-When updating, fetch `cursor/plugins`, extract `pstack/` with `git subtree split`, and merge
-the extracted history only. Never merge the whole monorepo into this repository.
+For updates, follow [SYNC.md](SYNC.md): replay each `pstack/`-only patch in order, preserving
+the upstream author, author date and full message. Commit Codex adapter and sync metadata
+separately. Never merge the whole monorepo into this repository.
 
 The native loader check used an isolated, network-disabled Codex profile. All 58 original
 skill files loaded unchanged; native true/false invocation-policy files changed the implicit
