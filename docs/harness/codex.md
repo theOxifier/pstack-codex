@@ -76,11 +76,12 @@ entry as though it were a Cursor default. Do not put the preferences in
 `AGENTS.md` or modify native/global configuration. Future Pstack invocations explicitly read
 that file, so setup's claim about an always-applied Cursor rule becomes that explicit read.
 
-The default Gemini panel seat now uses Cursor's `gemini-4-neon-high`. Cap a confirmed native
-Gemini 4 Neon equivalent at `high`, even when the role targets `xhigh`. When no equivalent
-is available, use the existing `inherit-parent` fallback for that seat. Setup's migration of
-older `gemini-4-*` slugs applies to Cursor rules. Preserve confirmed native Codex choices on
-setup reruns.
+The default Gemini panel seat uses Cursor's `gemini-4-neon-xhigh`. When a native Gemini 4
+Neon equivalent is available, use the panel seat's own budget target of `xhigh`, `high`, or
+`medium` for large, medium, or small, using only confirmed supported efforts. Use
+`inherit-parent` when no native equivalent is available. Setup's migration of the old
+`gemini-4-neon-high` default and older non-Neon `gemini-4-*` entries applies to Cursor rules.
+Preserve confirmed native Codex choices on migration.
 
 ## Paths and session evidence
 
