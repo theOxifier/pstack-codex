@@ -9,7 +9,7 @@ Pstack's existing [Claude Code adapter](docs/harness/claude-code.md) pattern:
 
 - Host-coupled entrypoints add one adapter-reading paragraph after their H1. Their original
   workflow text, metadata, and relative links remain unchanged. Supporting files are unchanged.
-- The 57 upstream explicit-only skills add native `agents/openai.yaml` policy files. The
+- The 58 upstream explicit-only skills add native `agents/openai.yaml` policy files. The
   original Cursor flag is preserved; `setup-pstack` keeps its upstream automatic behavior.
 - Cursor tool fields, custom agent roles, model/effort choices, session evidence, and skill
   paths map to available Codex equivalents. Fresh Task agents use `fork_turns: "none"` so
